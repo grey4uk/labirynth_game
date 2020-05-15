@@ -9,38 +9,39 @@ import stop from "../assets/icons/stop.png";
 
 const size = 3;
 const arrows = [up, right, down, left];
-const array = [];
+// const array = [];
 const trackArray = [];
 let focusIndex = null;
 let timerId;
 let exit;
-let target;
 
 const Game = () => {
-  const [flag, setFlag] = useState(false);
+  // const [flag, setFlag] = useState(false);
   const [track, setTrack] = useState([]);
+  const [array, setArray] = useState([]);
 
   useEffect(() => {
-    createArray(size);
-    setTrack(trackArray);
-  }, [flag]);
+    setArray(createArray(size));
+  }, []);
 
   const randomizer = (max, min = 0) => {
     return Math.floor(Math.random() * (max - min)) + min;
   };
 
   const createArray = (size) => {
+    let arrayOfCube=[];
     for (let i = 0; i < size; i++) {
-      array[i] = [];
+      arrayOfCube[i] = [];
       for (let j = 0; j < size; j++) {
-        array[i][j] = {
+        arrayOfCube[i][j] = {
           id: `${i}${j}`,
           coordX: i,
           coordY: j,
         };
       }
     }
-    console.log('array', array)
+    console.log("array", arrayOfCube);
+    return arrayOfCube;
   };
 
   const setRandomArrow = (x, y) => {
@@ -78,7 +79,7 @@ const Game = () => {
         exit = null;
         break;
     }
-    console.log('exit',arrows.indexOf(exit) );
+    console.log("exit", arrows.indexOf(exit));
     return exit;
   };
 
@@ -125,32 +126,34 @@ const Game = () => {
           break;
       }
     }
-    trackArray[9]={...trackArray[9],step:stop};
+    trackArray[9] = { ...trackArray[9], step: stop };
     // console.log('trackArray', trackArray[9])
   };
 
   const startClick = async (e) => {
-    alert("You have 10seconds for find exit)Good luck!");
-    await setFlag(!flag);
-    
+    alert("30 SECONDS FOR FIND EXIT) GOOD LUCK!");
+    await setArray(createArray(size));
+    let target;
     if (!focusIndex) {
       focusIndex = array[randomizer(size)][randomizer(size)];
-      setTrack(trackArray);
-    }  
-      target = document.getElementById(`${focusIndex.id}`);
       buildTrack(focusIndex);
+      target = document.getElementById(`${focusIndex.id}`);
       exit = array[trackArray[9].x][trackArray[9].y];
-      console.log('trackArray', trackArray);
-      console.log('exit', exit);     
-    
-    target.style.backgroundColor = "blue";
-    target.textContent = "start";
+      target.style.backgroundColor = "blue";
+      target.textContent = "START";
+    }
+    // target.style.backgroundColor = "blue";
+    // target.textContent = "START";
+    console.log("exit", exit);
+    await setTrack(trackArray);
     timerId = setTimeout(() => {
       target.style.backgroundColor = "red";
-      target.textContent = "loose";
+      target.textContent = "LOOSE";
       focusIndex = null;
+      exit = null;
+      target = "";
       clearTimeout(timerId);
-    }, 5000);
+    }, 10000);
   };
 
   const handleClick = (e) => {
@@ -159,11 +162,13 @@ const Game = () => {
         e.target.style.backgroundColor = "green";
         e.target.textContent = "WIN";
         focusIndex = null;
+        exit = null;
         clearTimeout(timerId);
       } else {
         e.target.style.backgroundColor = "red";
-        e.target.textContent = "miss";
+        e.target.textContent = "MISS";
         focusIndex = null;
+        exit = null;
         clearTimeout(timerId);
       }
     } else alert("Try in next game");
