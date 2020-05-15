@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/labirynth_game/static/css/main.14f96897.chunk.css",
+    "main.js": "/labirynth_game/static/js/main.672d5d50.chunk.js",
+    "main.js.map": "/labirynth_game/static/js/main.672d5d50.chunk.js.map",
+    "runtime-main.js": "/labirynth_game/static/js/runtime-main.c129481e.js",
+    "runtime-main.js.map": "/labirynth_game/static/js/runtime-main.c129481e.js.map",
+    "static/js/2.8f33aeef.chunk.js": "/labirynth_game/static/js/2.8f33aeef.chunk.js",
+    "static/js/2.8f33aeef.chunk.js.map": "/labirynth_game/static/js/2.8f33aeef.chunk.js.map",
+    "index.html": "/labirynth_game/index.html",
+    "precache-manifest.c816d6e2578c9e54ef8db2a52750c242.js": "/labirynth_game/precache-manifest.c816d6e2578c9e54ef8db2a52750c242.js",
+    "service-worker.js": "/labirynth_game/service-worker.js",
+    "static/css/main.14f96897.chunk.css.map": "/labirynth_game/static/css/main.14f96897.chunk.css.map",
+    "static/js/2.8f33aeef.chunk.js.LICENSE.txt": "/labirynth_game/static/js/2.8f33aeef.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c129481e.js",
+    "static/js/2.8f33aeef.chunk.js",
+    "static/css/main.14f96897.chunk.css",
+    "static/js/main.672d5d50.chunk.js"
+  ]
+}
