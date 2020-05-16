@@ -9,16 +9,17 @@ import stop from "../assets/icons/stop.png";
 
 const size = 3;
 const arrows = [up, right, down, left];
-// const array = [];
 const trackArray = [];
 let focusIndex = null;
-let timerId;
-let exit;
+let timerId = "";
+let start = "";
+let exit = "";
+let clickId = "";
 
 const Game = () => {
-  // const [flag, setFlag] = useState(false);
   const [track, setTrack] = useState([]);
   const [array, setArray] = useState([]);
+  const [flag, setFlag] = useState(false);
 
   useEffect(() => {
     setArray(createArray(size));
@@ -29,7 +30,7 @@ const Game = () => {
   };
 
   const createArray = (size) => {
-    let arrayOfCube=[];
+    let arrayOfCube = [];
     for (let i = 0; i < size; i++) {
       arrayOfCube[i] = [];
       for (let j = 0; j < size; j++) {
@@ -40,8 +41,14 @@ const Game = () => {
         };
       }
     }
-    console.log("array", arrayOfCube);
     return arrayOfCube;
+  };
+
+  const clear = (id) => {
+    console.log('id', id);
+    const target = document.getElementById(`${id}`);
+    target.style.backgroundColor = "lawngreen";
+    target.textContent = "";
   };
 
   const setRandomArrow = (x, y) => {
@@ -79,7 +86,6 @@ const Game = () => {
         exit = null;
         break;
     }
-    console.log("exit", arrows.indexOf(exit));
     return exit;
   };
 
@@ -131,19 +137,27 @@ const Game = () => {
   };
 
   const startClick = async (e) => {
-    alert("30 SECONDS FOR FIND EXIT) GOOD LUCK!");
-    await setArray(createArray(size));
+   setFlag(true)
+    alert("15 SECONDS FOR FIND EXIT) GOOD LUCK!");
+    // ;
     let target;
     if (!focusIndex) {
+      if (start.id) {
+        if(clickId) {
+          clear(start.id);
+           clear(clickId)
+          }
+        else clear(start.id);
+      }
       focusIndex = array[randomizer(size)][randomizer(size)];
       buildTrack(focusIndex);
       target = document.getElementById(`${focusIndex.id}`);
       exit = array[trackArray[9].x][trackArray[9].y];
+      start = array[trackArray[0].x][trackArray[0].y];
       target.style.backgroundColor = "blue";
       target.textContent = "START";
+      await setArray(createArray(size))
     }
-    // target.style.backgroundColor = "blue";
-    // target.textContent = "START";
     console.log("exit", exit);
     await setTrack(trackArray);
     timerId = setTimeout(() => {
@@ -151,25 +165,28 @@ const Game = () => {
       target.textContent = "LOOSE";
       focusIndex = null;
       exit = null;
-      target = "";
       clearTimeout(timerId);
-    }, 10000);
+      setFlag(false);
+    }, 15000);
   };
 
   const handleClick = (e) => {
+    clickId = e.target.id;
     if (focusIndex) {
-      if (e.target.id === exit.id) {
+      if (clickId === exit.id) {
         e.target.style.backgroundColor = "green";
         e.target.textContent = "WIN";
         focusIndex = null;
         exit = null;
         clearTimeout(timerId);
+        setFlag(false);
       } else {
         e.target.style.backgroundColor = "red";
         e.target.textContent = "MISS";
         focusIndex = null;
         exit = null;
         clearTimeout(timerId);
+        setFlag(false);
       }
     } else alert("Try in next game");
   };
@@ -180,8 +197,8 @@ const Game = () => {
         style={{ width: `${size * 60 + 20}px`, height: `${size * 60 + 20}px` }}
         className={css.mainDiv}
       >
-        {array.map((element) =>
-          element.map((el) => (
+        {array.map((element, x) =>
+          element.map((el, y) => (
             <div
               key={el.id}
               id={el.id}
@@ -205,7 +222,7 @@ const Game = () => {
       </div>
       <div style={{ textAlign: "center", padding: "10px" }}>
         <form>
-          <button type="button" onClick={startClick}>
+          <button type="button" onClick={startClick} disabled={flag}>
             START
           </button>
         </form>
