@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f51ae16a39e77b8f03b931d63df8a904",
+    "revision": "f4a09e2faaadbfffc66c90a324d98db6",
     "url": "/labirynth_game/index.html"
   },
   {
-    "revision": "6272bdc0ba4f548c0e3d",
+    "revision": "5c127c358bf6ba5cec44",
     "url": "/labirynth_game/static/css/main.14f96897.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/labirynth_game/static/js/2.9c388fd6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "6272bdc0ba4f548c0e3d",
-    "url": "/labirynth_game/static/js/main.bfa01b69.chunk.js"
+    "revision": "5c127c358bf6ba5cec44",
+    "url": "/labirynth_game/static/js/main.c0420178.chunk.js"
   },
   {
     "revision": "2e4b493996d2557c7bd0",
