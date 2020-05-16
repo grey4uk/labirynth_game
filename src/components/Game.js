@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import css from "./Game.module.css";
-import { v4 as uuidv4 } from "uuid";
 import up from "../assets/icons/up.png";
 import down from "../assets/icons/down.png";
 import left from "../assets/icons/left.png";
@@ -169,24 +168,27 @@ const Game = () => {
   };
 
   const handleClick = (e) => {
+    
+    console.log('clickId', clickId);
     if (focusIndex) {
       if (e.target.id === exit.id) {
         e.target.style.backgroundColor = "green";
         e.target.textContent = "WIN";
         focusIndex = null;
         exit = null;
+        clickId = e.target.id;
         clearTimeout(timerId);
         setFlag(false);
       } else {
         e.target.style.backgroundColor = "red";
         e.target.textContent = "MISS";
+        clickId = e.target.id;
         focusIndex = null;
         exit = null;
         clearTimeout(timerId);
         setFlag(false);
       }
     } else {
-      clickId = e.target.id;
       alert("Try in next game");
     }
   };
