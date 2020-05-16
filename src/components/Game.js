@@ -45,7 +45,6 @@ const Game = () => {
   };
 
   const clear = (id) => {
-    console.log("id", id);
     const target = document.getElementById(`${id}`);
     target.style.backgroundColor = "lawngreen";
     target.textContent = "";
