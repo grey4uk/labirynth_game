@@ -137,7 +137,7 @@ const Game = () => {
   };
 
   const startClick = async (e) => {
-   setFlag(true)
+   await setFlag(true)
     alert("15 SECONDS FOR FIND EXIT) GOOD LUCK!");
     // ;
     let target;
