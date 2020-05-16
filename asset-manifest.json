@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/labirynth_game/static/css/main.14f96897.chunk.css",
-    "main.js": "/labirynth_game/static/js/main.ecd3d922.chunk.js",
-    "main.js.map": "/labirynth_game/static/js/main.ecd3d922.chunk.js.map",
+    "main.js": "/labirynth_game/static/js/main.bfa01b69.chunk.js",
+    "main.js.map": "/labirynth_game/static/js/main.bfa01b69.chunk.js.map",
     "runtime-main.js": "/labirynth_game/static/js/runtime-main.c129481e.js",
     "runtime-main.js.map": "/labirynth_game/static/js/runtime-main.c129481e.js.map",
     "static/js/2.9c388fd6.chunk.js": "/labirynth_game/static/js/2.9c388fd6.chunk.js",
     "static/js/2.9c388fd6.chunk.js.map": "/labirynth_game/static/js/2.9c388fd6.chunk.js.map",
     "index.html": "/labirynth_game/index.html",
-    "precache-manifest.745431747a92793be3fcd9258ccf2e4e.js": "/labirynth_game/precache-manifest.745431747a92793be3fcd9258ccf2e4e.js",
+    "precache-manifest.6479e37293e9cd99b880a9432a0e3228.js": "/labirynth_game/precache-manifest.6479e37293e9cd99b880a9432a0e3228.js",
     "service-worker.js": "/labirynth_game/service-worker.js",
     "static/css/main.14f96897.chunk.css.map": "/labirynth_game/static/css/main.14f96897.chunk.css.map",
     "static/js/2.9c388fd6.chunk.js.LICENSE.txt": "/labirynth_game/static/js/2.9c388fd6.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.c129481e.js",
     "static/js/2.9c388fd6.chunk.js",
     "static/css/main.14f96897.chunk.css",
-    "static/js/main.ecd3d922.chunk.js"
+    "static/js/main.bfa01b69.chunk.js"
   ]
 }
