@@ -45,7 +45,7 @@ const Game = () => {
   };
 
   const clear = (id) => {
-    console.log('id', id);
+    console.log("id", id);
     const target = document.getElementById(`${id}`);
     target.style.backgroundColor = "lawngreen";
     target.textContent = "";
@@ -137,17 +137,16 @@ const Game = () => {
   };
 
   const startClick = async (e) => {
-   await setFlag(true)
+    await setFlag(true);
     alert("15 SECONDS FOR FIND EXIT) GOOD LUCK!");
     // ;
     let target;
     if (!focusIndex) {
       if (start.id) {
-        if(clickId) {
+        if (clickId) {
           clear(start.id);
-           clear(clickId)
-          }
-        else clear(start.id);
+          clear(clickId);
+        } else clear(start.id);
       }
       focusIndex = array[randomizer(size)][randomizer(size)];
       buildTrack(focusIndex);
@@ -156,7 +155,7 @@ const Game = () => {
       start = array[trackArray[0].x][trackArray[0].y];
       target.style.backgroundColor = "blue";
       target.textContent = "START";
-      await setArray(createArray(size))
+      await setArray(createArray(size));
     }
     console.log("exit", exit);
     await setTrack(trackArray);
@@ -171,9 +170,8 @@ const Game = () => {
   };
 
   const handleClick = (e) => {
-    clickId = e.target.id;
     if (focusIndex) {
-      if (clickId === exit.id) {
+      if (e.target.id === exit.id) {
         e.target.style.backgroundColor = "green";
         e.target.textContent = "WIN";
         focusIndex = null;
@@ -188,7 +186,10 @@ const Game = () => {
         clearTimeout(timerId);
         setFlag(false);
       }
-    } else alert("Try in next game");
+    } else {
+      clickId = e.target.id;
+      alert("Try in next game");
+    }
   };
 
   return (
