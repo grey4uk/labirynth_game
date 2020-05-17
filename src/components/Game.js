@@ -6,7 +6,7 @@ import left from "../assets/icons/left.png";
 import right from "../assets/icons/right.png";
 import stop from "../assets/icons/stop.png";
 
-const size = 3;
+const size = 4;
 const arrows = [up, right, down, left];
 const trackArray = [];
 let focusIndex = null;
@@ -168,10 +168,10 @@ const Game = () => {
   };
 
   const handleClick = (e) => {
-    
-    console.log('clickId', clickId);
+    console.log("clickId", clickId);
     if (focusIndex) {
       if (e.target.id === exit.id) {
+        console.log("track", track);
         e.target.style.backgroundColor = "green";
         e.target.textContent = "WIN";
         focusIndex = null;
@@ -196,7 +196,11 @@ const Game = () => {
   return (
     <div className={css.Wrapper}>
       <div
-        style={{ width: `${size * 60 + 20}px`, height: `${size * 60 + 20}px` }}
+        style={{
+          width: `${size * 60 + 20}px`,
+          height: `${size * 60 + 20}px`,
+          marginBottom: "20px",
+        }}
         className={css.mainDiv}
       >
         {array.map((element, x) =>
@@ -210,6 +214,7 @@ const Game = () => {
           ))
         )}
       </div>
+      <h3>Move follow arrows and find exit</h3>
       <div className={css.stepsBlock}>
         {track.map((el, index) => (
           <img
