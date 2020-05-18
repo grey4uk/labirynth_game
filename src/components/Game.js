@@ -144,7 +144,8 @@ const Game = () => {
         if (clickId) {
           clear(start.id);
           clear(clickId);
-        } else clear(start.id);
+          clear(exit.id);
+        } else { clear(exit.id);clear(start.id);}
       }
       focusIndex = array[randomizer(size)][randomizer(size)];
       buildTrack(focusIndex);
@@ -158,10 +159,11 @@ const Game = () => {
     console.log("exit", exit);
     await setTrack(trackArray);
     timerId = setTimeout(() => {
+      document.getElementById(`${exit.id}`).textContent="exit";
       target.style.backgroundColor = "red";
       target.textContent = "LOOSE";
       focusIndex = null;
-      exit = null;
+      // exit = null;
       clearTimeout(timerId);
       setFlag(false);
     }, 15000);
@@ -171,20 +173,20 @@ const Game = () => {
     console.log("clickId", clickId);
     if (focusIndex) {
       if (e.target.id === exit.id) {
-        console.log("track", track);
         e.target.style.backgroundColor = "green";
         e.target.textContent = "WIN";
         focusIndex = null;
-        exit = null;
+        // exit = null;
         clickId = e.target.id;
         clearTimeout(timerId);
         setFlag(false);
       } else {
+        document.getElementById(`${exit.id}`).textContent="exit";
         e.target.style.backgroundColor = "red";
         e.target.textContent = "MISS";
         clickId = e.target.id;
         focusIndex = null;
-        exit = null;
+        // exit = null;
         clearTimeout(timerId);
         setFlag(false);
       }
